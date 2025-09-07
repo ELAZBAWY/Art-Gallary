@@ -1,0 +1,27 @@
+.head {
+  display: flex;
+  margin-top: 50px;
+  margin-left: 50px;
+  justify-content: space-evenly;
+  border-bottom: 1px solid #d3d3d3;
+}
+.head button {
+  color: #707070;
+  transition: all 0.3s ease;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+}
+.head button:hover {
+  color: black;
+  border-bottom: 2px solid black;
+}
+.head button:focus {
+  color: black;
+  border-bottom: 2px solid black;
+}
+.favo{
+cursor: pointer;
+}
+.favo:focus {
+  background-color: rgb(255, 0, 0) !important;
+}

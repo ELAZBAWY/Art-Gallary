@@ -1,0 +1,19 @@
+li {
+    list-style: none;
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+}
+
+@font-face {
+    font-family: A ;
+    src: url("/public/Fonts/Ubuntu-Bold.ttf");
+}
+@font-face {
+    font-family: B ;
+    src: url("/public/Fonts/Ubuntu-Regular.ttf");
+}
