@@ -8,6 +8,7 @@ import Sales from "./Sales";
 import TrendArtists from "./TrendArtists";
 import Footer from "./Footer";
 import Sales2 from "./Sales2";
+import ReadMore from "./ReadMore";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Featured />
         <Sales />
         <TrendArtists />
+        <ReadMore />
         <Sales2 />
         <Footer />
       </ThemeProvider>

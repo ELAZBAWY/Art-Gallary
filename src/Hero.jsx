@@ -51,6 +51,7 @@ const SliderSection = () => {
         navigation
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         style={{ width: "100%" }}
+        speed={1200}
       >
         {items.map((item) => (
           <SwiperSlide key={item.id}>

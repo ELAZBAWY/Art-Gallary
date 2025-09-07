@@ -33,11 +33,17 @@ img {
   ul li {
     display: none;
   }
+  ul li a{
+    display: none;
+  }
   .search {
     width: 100%;
   }
   .menuIcon {
     display: block;
+  }
+  .buttons {
+    display: none;
   }
 }
 .min-head {

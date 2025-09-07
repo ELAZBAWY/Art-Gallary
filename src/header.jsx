@@ -206,34 +206,56 @@ export default function Header() {
                   display: "flex",
                   width: "100%",
                   padding: "10px 0",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
-                {["Sculptures", "Prints", "Photography", "Paintings"].map(
-                  (item, idx) => (
+                {[
+                  { label: "Sales", link: "#sculptures" },
+                  { label: "Artical", link: "#prints" },
+                  { label: "You may Know", link: "#photography" },
+                  { label: "Paintings", link: "#paintings" },
+                ].map((item, idx) => (
+                  <a
+                    href={item.link}
+                    key={idx}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
                     <li
-                      key={idx}
                       style={{
                         borderBottom: "1px solid #dcd4d4ff",
-                        padding: "0 12px", // padding افقي متحكم فيه
+                        padding: "0 12px",
                         cursor: "pointer",
+                        listStyle: "none",
                       }}
                     >
-                      {item}
+                      {item.label}
                     </li>
-                  )
-                )}
+                  </a>
+                ))}
+
                 <div
-                  style={{ display: "flex", gap: "20px", marginLeft: "20px"  , alignItems:"center" , justifyContent:"center"}}
+                  style={{
+                    display: "flex",
+                    gap: "20px",
+                    marginLeft: "20px",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
                 >
-                  <IconButton>
-                    <ShoppingCartIcon />
-                  </IconButton>
-                  <IconButton>
-                    <PersonIcon />
-                  </IconButton>
-                  <IconButton>
-                    <MailIcon />
-                  </IconButton>
+                  <div>
+                    <div className="buttons">
+                      <IconButton>
+                        <ShoppingCartIcon />
+                      </IconButton>
+                      <IconButton>
+                        <PersonIcon />
+                      </IconButton>
+                      <IconButton>
+                        <MailIcon />
+                      </IconButton>
+                    </div>
+                  </div>
                 </div>
               </ul>
             </nav>

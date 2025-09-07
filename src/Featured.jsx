@@ -94,6 +94,7 @@ export default function Featured() {
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 4 },
             }}
+            speed={1500}
           >
             {items.map((item) => (
               <SwiperSlide key={item.id}>
