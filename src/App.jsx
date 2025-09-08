@@ -9,6 +9,7 @@ import TrendArtists from "./TrendArtists";
 import Footer from "./Footer";
 import Sales2 from "./Sales2";
 import ReadMore from "./ReadMore";
+import Filter from "./Filter";
 
 function App() {
   return (
@@ -17,9 +18,11 @@ function App() {
         <CssBaseline />
         <Hero />
         <Featured />
+        <Filter />
         <Sales />
         <TrendArtists />
         <ReadMore />
+        <Filter />
         <Sales2 />
         <Footer />
       </ThemeProvider>

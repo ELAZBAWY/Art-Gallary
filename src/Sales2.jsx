@@ -68,7 +68,6 @@ export default function Sales() {
   };
   return (
     <>
-      <div className="head"></div>
       <div className="cards" style={{ marginTop: "90px" }}>
         <h1 style={{ marginLeft: "10px" }}>Curators’</h1>
         <h3 style={{ marginLeft: "10px", color: "#555", fontWeight: "400" }}>

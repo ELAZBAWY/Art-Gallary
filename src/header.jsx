@@ -56,10 +56,12 @@ export default function Header() {
               }}
             >
               <div className="logo">
-                <img
-                  src="https://www.artrewards.net/assets/uploads/media-uploader/group-1081723878495.png"
-                  alt="logo"
-                />
+                <a href="/">
+                  <img
+                    src="https://www.artrewards.net/assets/uploads/media-uploader/group-1081723878495.png"
+                    alt="logo"
+                  />
+                </a>
               </div>
               <div
                 className="search"

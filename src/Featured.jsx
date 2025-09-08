@@ -149,6 +149,15 @@ export default function Featured() {
           </Swiper>
         </div>
       </div>
+      <div
+        style={{
+          width: "100%",
+          background: "black",
+          border: "2px solid",
+          marginTop: "50px",
+          marginBottom: "90px",
+        }}
+      ></div>
     </>
   );
 }
