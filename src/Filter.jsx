@@ -1,5 +1,12 @@
 import React from "react";
-import { Button, Menu, MenuItem, Box } from "@mui/material";
+import {
+  Button,
+  Menu,
+  MenuItem,
+  Box,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
@@ -7,9 +14,11 @@ import LayersIcon from "@mui/icons-material/Layers";
 import CropSquareIcon from "@mui/icons-material/CropSquare";
 import PublicIcon from "@mui/icons-material/Public";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import CheckIcon from "@mui/icons-material/Check";
 
 const FilterMenu = ({ label, options, icon, sx }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [selected, setSelected] = React.useState(""); // يخزن الاختيار الحالي لكل فلتر
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -18,6 +27,12 @@ const FilterMenu = ({ label, options, icon, sx }) => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleSelect = (option) => {
+    setSelected(option);
+    setAnchorEl(null);
+    // لو عايز تبعت الاختيار لبرا: add a prop like onChange(option) وتتصل هنا
   };
 
   return (
@@ -30,17 +45,68 @@ const FilterMenu = ({ label, options, icon, sx }) => {
       >
         {label}
       </Button>
-      <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
+
+      <Menu
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        PaperProps={{
+          sx: {
+            border: "1px solid #e6e6e6", // border حوالين القائمة
+            borderRadius: 2,
+            boxShadow: "0px 6px 18px rgba(0,0,0,0.06)",
+            minWidth: 200,
+          },
+        }}
+        MenuListProps={{
+          sx: {
+            p: 0,
+            // تنسيق كل MenuItem
+            "& .MuiMenuItem-root": {
+              backgroundColor: "transparent",
+              borderBottom: "1px solid rgba(0,0,0,0.06)",
+              fontWeight: 100,
+              fontSize: "0.95rem",
+              color: "#848080ff",
+              py: 1.2,
+              px: 2,
+              "&:last-child": {
+                borderBottom: "none",
+              },
+              "&:hover": {
+                backgroundColor: "rgba(0,0,0,0.03)",
+                color: "#555",
+              },
+            },
+          },
+        }}
+      >
         {options.map((option) => (
-          <MenuItem key={option} onClick={handleClose}>
-            {option}
+          <MenuItem
+            key={option}
+            onClick={() => handleSelect(option)}
+            selected={option === selected}
+            sx={{
+              // لون العنصر لو هو المختار
+              backgroundColor:
+                option === selected ? "rgba(0,128,128,0.06)" : "transparent",
+              "&.Mui-selected:hover": {
+                backgroundColor: "rgba(0,128,128,0.08)",
+              },
+            }}
+          >
+            <ListItemText>{option}</ListItemText>
+            {option === selected && (
+              <ListItemIcon sx={{ minWidth: 36 }}>
+                <CheckIcon fontSize="small" />
+              </ListItemIcon>
+            )}
           </MenuItem>
         ))}
       </Menu>
     </Box>
   );
 };
-
 
 export default function FiltersBar() {
   return (
@@ -52,6 +118,7 @@ export default function FiltersBar() {
         alignItems: "center",
         justifyContent: "center",
         color: "black",
+        flexWrap: "wrap",
       }}
     >
       <FilterMenu
@@ -65,7 +132,7 @@ export default function FiltersBar() {
         label="Price Range"
         options={["Under $50", "$50 - $200", "Above $200"]}
         sx={{ color: "black", border: "1px solid black " }}
-        icon={<AttachMoneyIcon/>}
+        icon={<AttachMoneyIcon />}
       />
       <FilterMenu
         label="Color"
